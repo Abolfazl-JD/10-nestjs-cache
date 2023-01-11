@@ -24,12 +24,15 @@ export class PostsController {
 
   @UseInterceptors(CacheInterceptor)
   @CacheKey('cache-test-route')
-  @CacheTTL(60)
+  @CacheTTL(30)
   @Get('test-caching')
   testCaching() {
     return this.postsService.testCaching()
   }
 
+  @UseInterceptors(CacheInterceptor)
+  @CacheKey('get-single-post')
+  @CacheTTL(30)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.postsService.findOne(+id);

@@ -10,8 +10,10 @@ import * as redisStore from 'cache-manager-redis-store'
     TypeOrmModule.forFeature([Post]),
     CacheModule.register({
       store: redisStore,
-      host: 'localhost',
-      port: 6379
+      socket: {
+        host: 'localhost',
+        port: 6379,
+      }
     })
   ],
   controllers: [PostsController],

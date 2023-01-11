@@ -38,8 +38,7 @@ export class PostsService {
   }
 
   async testCaching() {
-    const name = await this.cacheManager.get('name')
-    console.log('name', name)
+    console.log('name : ', await this.cacheManager.get("get-single-post"))
     return 'in-memory chache tested'
   }
 

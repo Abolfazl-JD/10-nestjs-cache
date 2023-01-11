@@ -12,6 +12,7 @@ export class HttpCacheInterceptor extends CacheInterceptor {
             const req = context.switchToHttp().getRequest()
             console.log('\n req query is : ', req.query)
             const { take = 10, skip = 0 } = req.query
+            console.log('result key is:' , `${cacheKey}-take=${take}-skip=${skip}`)
             return `${cacheKey}-take=${take}-skip=${skip}`
         }
         return super.trackBy(context)
